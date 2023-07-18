@@ -14,6 +14,7 @@ class chat extends StatefulWidget {
 
 class _chatState extends State<chat> {
   final textcontroll = TextEditingController();
+  final scrollcontroller=ScrollController();
   final auth = FirebaseAuth.instance;
   FirebaseFirestore firestore = FirebaseFirestore.instance;
   var loggeduser;
@@ -90,6 +91,7 @@ class _chatState extends State<chat> {
 
                   return Expanded(
                       child: ListView(
+                        controller: scrollcontroller,
                     reverse: true,
                     children: messageblock,
                     padding:
@@ -112,6 +114,10 @@ class _chatState extends State<chat> {
                   ),
                   TextButton(
                     onPressed: () {
+                      scrollcontroller.animateTo(
+                          scrollcontroller.position.minScrollExtent,
+                          duration: const Duration(milliseconds: 1),
+                          curve: Curves.fastOutSlowIn);
                       textcontroll.clear();
                       firestore.collection('messages').add({
                         'message': msg,
