@@ -36,18 +36,21 @@ class _homeState extends State<home> {
                     ),
                   ),
                 ),
-                SizedBox(
-                  height: 60.0,
-                  child: DefaultTextStyle(
-                    style: const TextStyle(
-                        fontSize: 40.0,
-                        color: Colors.blueAccent,
-                        fontWeight: FontWeight.w900),
-                    child: AnimatedTextKit(
-                      animatedTexts: [
-                        TypewriterAnimatedText('  sup?',
-                            speed: Duration(milliseconds: 300)),
-                      ],
+                Padding(
+                  padding: EdgeInsets.all(1.0),
+                  child: SizedBox(
+                    height: 60.0,
+                    child: DefaultTextStyle(
+                      style: TextStyle(
+                          fontSize: 37.0,
+                          color: Colors.blueAccent,
+                          fontWeight: FontWeight.w900),
+                      child: AnimatedTextKit(
+                        animatedTexts: [
+                          TypewriterAnimatedText('  Spill the Tea',
+                              speed: Duration(milliseconds: 210)),
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -56,8 +59,18 @@ class _homeState extends State<home> {
             const SizedBox(
               height: 48.0,
             ),
-            padding(text: 'Log in',colour: Colors.blueAccent,onpressed:(){Navigator.pushNamed(context, "login");}),
-            padding(text:'Register',colour:Colors.blueAccent,onpressed:(){Navigator.pushNamed(context, "login");},
+            padding(
+                text: 'Log in',
+                colour: Colors.blueAccent,
+                onpressed: () {
+                  Navigator.pushNamed(context, "login");
+                }),
+            padding(
+              text: 'Register',
+              colour: Colors.blueAccent,
+              onpressed: () {
+                Navigator.pushNamed(context,"reg");
+              },
             ),
           ],
         ),
